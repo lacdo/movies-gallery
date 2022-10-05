@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Search from './components/Search';
 
-const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY
+
+const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
+
+useState()
+
 const App = () => {
   const [word, setWord] = useState('');
 
