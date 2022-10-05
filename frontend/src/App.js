@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Search from './components/Search';
 import MovieCard from './components/MovieCard';
 import { Container, Row, Col } from 'react-bootstrap';
-
+import Welcome from './components/Welcome';
 const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
 
 const App = () => {
@@ -36,13 +36,14 @@ const App = () => {
       <Header title="18 Rabbit Films Gallery" />
       <Search word={word} setWord={setWord} handleSubmit={handleSearchSubmit} />
       <Container className="mt-4">
-        <Row xs={1} md={2} lg={3}>
+        {movies.length ? (<Row xs={1} md={2} lg={3}>
           {movies.map((movie, i) => (
             <Col key={i} className="pb-3">
               <MovieCard movies={movie} deleteMovie={handleDeleteMovie} />
             </Col>
           ))}
-        </Row>
+        </Row>) : (<Welcome />)
+        
       </Container>
     </div>
   );
