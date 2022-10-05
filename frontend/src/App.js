@@ -2,14 +2,13 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Search from './components/Search';
+import MovieCard from './components/MovieCard';
 
 const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
 
 const App = () => {
   const [word, setWord] = useState('');
   const [movies, setMovies] = useState([]);
-
-  console.log(movies);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +18,7 @@ const App = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setMovies([data, ...movies]);
+        setMovies([{ ...data, title: word }, ...movies]);
       })
       .catch((err) => {
         console.log(err);
@@ -31,6 +30,7 @@ const App = () => {
     <div>
       <Header title="18 Rabbit Films Gallery" />
       <Search word={word} setWord={setWord} handleSubmit={handleSearchSubmit} />
+      {!!movies.length && <MovieCard movies={movies[0]} />}
     </div>
   );
 };
