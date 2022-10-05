@@ -1,7 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './components/Header';
+
 const App = () => {
   return (
     <div>
-      <h1>Movies Gallery</h1>
+      <Header title="18 Rabbit Films Gallery"/>
     </div>
   );
 }
