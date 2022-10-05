@@ -7,6 +7,9 @@ const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
 
 const App = () => {
   const [word, setWord] = useState('');
+  const [movies, setMovies] = useState([]);
+
+  console.log(movies);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +19,7 @@ const App = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setMovies([data, ...movies]);
       })
       .catch((err) => {
         console.log(err);
