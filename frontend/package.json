@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "esslint './src/**/*.{js,jsx}'",
-    "lint-fix": "esslint './src/**/*.{js,jsx}'"
+    "lint-fix": "esslint './src/**/*.{js,jsx} --fix'"
   },
   "eslintConfig": {
     "extends": [
@@ -29,9 +29,9 @@
     ]
   },
 
-"prettier": {
-  "singleQuote": true
-},
+  "prettier": {
+    "singleQuote": true
+  },
 
   "browserslist": {
     "production": [
